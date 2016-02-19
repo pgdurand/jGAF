@@ -1,0 +1,28 @@
+section.name=res:net.dlg.header
+section.desc=res:net.dlg.desc
+
+items=host, port , use
+
+item.host.name= res:form.host.name
+item.host.key= proxy.host
+item.host.desc=res:form.host.desc
+item.host.ctype=atom
+item.host.dtype=string
+
+item.port.name=res:form.port.name
+item.port.key=proxy.port
+item.port.desc=res:form.port.desc
+item.port.ctype=atom
+item.port.dtype=integer
+
+item.use.name=res:form.use.name
+item.use.key=proxy.use
+item.use.desc=res:form.use.desc
+item.use.ctype=atom
+item.use.dtype=boolean
+
+forms=form1
+
+#a form having no name is ok, but there won't be a form header in the Properties Editor.
+form.form1.name=
+form.form1.items=host,port,use

@@ -1,0 +1,34 @@
+locator.root=
+
+#reference to a localized file without its .properties extension
+resources=editorMessages
+
+sections=a,b,c
+
+section.a.name=Network
+section.a.icon=copy.png
+section.a.descriptor=network.desc
+section.a.config=network.config
+section.a.defconfig= network_def.config 
+section.a.type=props
+section.a.editor=kvp
+section.a.parent=
+
+section.b.name=Scheduler
+section.b.icon=network.png
+section.b.descriptor=scheduler.desc
+section.b.config=scheduler.config
+section.b.defconfig=
+section.b.type=props
+section.b.editor=kvp
+section.b.parent=a
+
+section.c.name=License
+#icon can be in folders or jars : register path /class through Accessor class.
+section.c.icon=folder.png
+section.c.descriptor=
+section.c.config=license.txt
+section.c.defconfig=license_def.txt
+section.c.type=raw
+section.c.editor=txt
+section.c.parent=a

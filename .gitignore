@@ -1,0 +1,10 @@
+/distrib
+/doc
+/lib
+/bin
+.DS_Store
+obflog.xml
+shrinklog.xml
+jgaf*.zip
+logging.txt
+

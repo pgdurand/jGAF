@@ -1,0 +1,17 @@
+section.name=Scheduler
+section.desc=
+
+items=freq
+
+item.freq.name=Frequency
+item.freq.key=frequency
+item.freq.desc=Time frequency used to submit queries to server (s).
+item.freq.optional=true
+item.freq.ctype=atom
+item.freq.dtype=integer
+
+forms=form1
+
+form.form1.name=
+form.form1.key=form1
+form.form1.items=freq

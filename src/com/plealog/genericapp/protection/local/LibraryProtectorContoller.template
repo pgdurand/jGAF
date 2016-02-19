@@ -1,0 +1,29 @@
+package com.ezlogImplem.ezform.protection;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public final class LibraryProtectorContoller {
+	
+	public static final boolean libExpired(){
+		String                 uid, control;
+        boolean                bRet = false;
+        Date                   d1, d2;
+        
+		try {
+			uid = ObfsucatedStringCodec.decryptHexString(@_LID_@);
+			control = ObfsucatedStringCodec.decryptHexString(@_HID_@);
+			if (uid.hashCode()!=Integer.valueOf(control)){
+				bRet = true;
+			}
+			d1 = Calendar.getInstance().getTime();
+			d2 = LibraryProtectorBase.DATE_FORM.parse(uid);
+			if (d1.after(d2)){
+				bRet = true;
+			}
+		} catch (Exception e) {
+			bRet = true;
+		}
+		return bRet;
+	}
+}

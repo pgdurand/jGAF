@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+/* Copyright (C) 2003-2016 Patrick G. Durand
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<!-- ============================================================= -->
+<project name="genapp" default="help" basedir=".">
+
+	<property environment="env" />
+
+	<property name="compile.optimize" value="on" />
+	<property name="compile.debug" value="off" />
+	<property name="compile.deprecation" value="false" />
+
+	<property file="version.properties" />
+
+	<property name="src" value="${basedir}/src" />
+	<property name="jar" value="${basedir}/jar" />
+	<property name="conf" value="${basedir}/conf" />
+	<property name="lib" value="${basedir}/lib" />
+	<property name="doc" value="${basedir}/doc" />
+	<property name="doc.api" value="${doc}/api" />
+
+	<property name="distrib" value="${basedir}/distrib" />
+	<property name="Dsrc" value="${distrib}/src" />
+	<property name="Dbin" value="${distrib}/bin" />
+	<property name="Dconf" value="${distrib}/conf" />
+	<property name="Dlib" value="${distrib}/lib" />
+  <property name="Ddoc" value="${distrib}/doc" />
+  <property name="Dex" value="${distrib}/examples/src" />
+
+	<property name="appname" value="${lib.name}-${lib.version}" />
+  <property name="appjar" value="${appname}.jar" />
+  <property name="appzip" value="${appname}.zip" />
+  <property name="obfappjar" value="${appname}_obf.jar" />
+
+  <property name="obfuscationlog"    value="${distrib}/obflog.xml"/>
+  <property name="rootpkg"           value="com.plealog"/>
+
+  <property name="main.class"        value="com.plealog.genericapp.ui.starter.EZMain"/>
+
+  	<path id="class.path">
+		<pathelement path="${classpath}" />
+		<pathelement location="${lib}" />
+	</path>
+
+	<path id="distribClass.path">
+		<pathelement location="${distrib}/lib" />
+	</path>
+
+	<!--
+  <property name="yguard.jar" value="${basedir}/../yguard-2.5.2/lib/yguard.jar"/>
+	<taskdef name="obfuscate" 
+	      classname="com.yworks.yguard.YGuardTask" 
+	      classpath="${yguard.jar}"/>
+  -->
+	<!-- ============================================================= -->
+	<target name="help">
+		<echo>This is the Ant's project file to manage genapp.</echo>
+		<echo />
+		<echo>Available targets are:</echo>
+		<echo />
+	</target>
+
+	<!-- use this Target to prepare the public distrib zipball -->
+	<target name="package">
+		<!-- Prepare the distrib directory tree -->
+		<delete dir="${distrib}" />
+		<delete file="${appzip}"/>
+		<mkdir dir="${Dsrc}" />
+		<mkdir dir="${Dconf}" />
+		<mkdir dir="${Dlib}" />
+    <mkdir dir="${Dex}" />
+    <mkdir dir="${Ddoc}/api" />
+		<!-- Copy Java source code files that make the Full Edition (Full) -->
+		<copy todir="${Dsrc}">
+			<fileset dir="${src}">
+        <exclude name="com/plealog/genericapp/api/protection/**" />
+        <exclude name="com/plealog/genericapp/protection/**" />
+        <exclude name="**/*Test*" />
+        <exclude name="**/*test*" />
+				<exclude name="cvs/**" />
+			</fileset>
+		</copy>
+    <copy todir="${Dsrc}">
+      <fileset dir="${src}">
+        <include name="com/plealog/genericapp/protection/distrib/HStringUtils.java" />
+      </fileset>
+    </copy>
+		<!-- Compile source code ready for distribution-->
+		<javac srcdir="${Dsrc}" destdir="${Dlib}" classpathref="distribClass.path" debug="${compile.debug}" 
+			optimize="${compile.optimize}" deprecation="${compile.deprecation}">
+		</javac>
+		<!-- Copy resources for the Full Edition (Full) -->
+		<copy todir="${Dlib}">
+			<fileset dir="${src}">
+				<include name="**/*.png" />
+				<include name="**/*.gif" />
+				<include name="**/*.dsc" />
+				<include name="**/*.config" />
+				<include name="**/*.properties" />
+			</fileset>
+		</copy>
+		<copy file="${basedir}/license.txt" todir="${Dlib}"/>
+		<!-- Make the Jar for the full application -->
+		<jar destfile="${Dbin}/${appjar}">
+			<fileset dir="${Dlib}" />
+			<manifest>
+				<attribute name="Implementation-Vendor" value="Plealog"/>
+				<attribute name="Implementation-Title" value="Generic Application"/>
+				<attribute name="Implementation-Version" value="${lib.version}"/>
+				<attribute name="Main-Class" value="${main.class}"/>
+			</manifest>
+		</jar>
+		<!-- antcall target="mask" />
+    <delete file="${Dbin}/${appjar}"/>
+    <move file="${Dbin}/${obfappjar}" tofile="${Dbin}/${appjar}"/ -->
+   </target>
+	<target name="prepareTuto" depends="package">
+    <delete dir="${Dsrc}" />
+    <delete dir="${Dlib}" />
+		<copy todir="${Dex}">
+			<fileset dir="${basedir}/../GAF - Tutorial/src"/>
+	  </copy>
+    <copy todir="${Dconf}">
+      <fileset dir="${basedir}/../GAF - Tutorial/conf"/>
+    </copy>
+    <copy todir="${Ddoc}/api">
+      <fileset dir="${doc}/api"/>
+    </copy>
+    <copy file="${basedir}/license.txt" todir="${distrib}"/>
+    <copy file="${basedir}/README.md" todir="${distrib}"/>
+		<zip destfile="${appzip}" basedir="${distrib}"/>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- target to create JavaDoc                                     -->
+	<!-- =================================================================== -->
+	<target name="jdoc">
+		<delete dir="${doc.api}" />
+		<mkdir dir="${doc.api}" />
+		<javadoc
+			packagenames="com.plealog.genericapp.api,com.plealog.genericapp.api.file,com.plealog.genericapp.api.log,com.plealog.genericapp.ui.menu,com.plealog.prefs4j.api,com.plealog.prefs4j.ui"
+			excludepackagenames="com.plealog.genericapp.api.test"
+			Overview="${src}/overview.html" 
+			Private="false" 
+			Splitindex="true" 
+			Windowtitle="GenApp API" 
+			author="true" 
+			classpathref="class.path" 
+			destdir="${doc.api}" 
+			maxmemory="256M" 
+			sourcepath="${src}" 
+			version="true">
+			<bottom>
+				<![CDATA[Plealog Software - 2003-2016]]>
+			</bottom>
+			<header>
+				<![CDATA[Java Generic Application API<BR>specification]]></header>
+			<link href="https://docs.oracle.com/javase/6/docs/api/"/>
+		</javadoc>
+	</target>
+
+	<!-- This is used to illustrate the use of YGuard: obfuscate the whole bytecode but the public API -->
+	<!--
+	<target name="mask" depends="" >
+	    <obfuscate>
+	    	<inoutpair in="${Dbin}/${appjar}" out="${Dbin}/${obfappjar}"/>
+  	    <rename mainclass="${main.class}"
+  	      logfile="${obfuscationlog}"
+  	    	conservemanifest="true"
+  	    	replaceClassNameStrings="false">
+  	      <keep>
+  	      	<class classes="protected" methods="protected" fields="protected">
+      	      <patternset>
+                <include name="com.plealog.genericapp.api.*"/>
+                <include name="com.plealog.genericapp.api.file.*"/>
+                <include name="com.plealog.genericapp.api.log.*"/>
+                <include name="com.plealog.genericapp.ui.apple.EZApple*"/>
+                <include name="com.plealog.genericapp.ui.menu.*"/>
+                <include name="com.plealog.prefs4j.api.*"/>
+                <include name="com.plealog.prefs4j.ui.*"/>
+      	      </patternset>
+  	      	</class>
+  	      </keep>
+  	    </rename>
+	    </obfuscate>
+	</target> 
+  -->
+</project>

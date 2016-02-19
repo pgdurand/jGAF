@@ -1,0 +1,54 @@
+cfg.name=Network
+cfg.desc=Network configuration used to access the Internet
+
+items=host,port,use,use2,fldr
+
+item.host.name=res:form.host.name
+item.host.key=proxy.host
+item.host.desc=res:form.host.desc
+item.host.optional=false
+item.host.ctype=atom
+item.host.dtype=string
+
+item.port.name=res:form.port.name
+item.port.key=proxy.port
+item.port.desc=res:form.port.desc
+item.port.optional=true
+item.port.ctype=atom
+item.port.dtype=integer
+
+item.use2.name=Use my proxy
+item.use2.key=proxy.use2
+item.use2.desc=Use my proxy with a checkbox test
+item.use2.optional=false
+item.use2.ctype=atom
+item.use2.dtype=boolean
+
+item.fldr.name=File
+item.fldr.key=proxy.folder
+item.fldr.desc=Choose the folder to use
+item.fldr.optional=false
+item.fldr.ctype=atom
+item.fldr.dtype=file
+
+item.use.name=res:form.use.name
+item.use.key=proxy.use
+item.use.desc=res:form.use.desc
+item.use.optional=false
+item.use.ctype=choice
+item.use.dtype=string
+item.use.choice.entries=t,f
+item.use.choice.default=f
+item.use.choice.entry.t.name=true
+item.use.choice.entry.t.key=true
+item.use.choice.entry.t.desc=res:form.use.true
+item.use.choice.entry.f.name=false
+item.use.choice.entry.f.key=false
+item.use.choice.entry.f.desc=res:form.use.false
+
+forms=form1
+
+form.form1.name=res:form1.name
+form.form1.key=form1
+form.form1.desc=res:form1.desc
+form.form1.items=host,port,use,use2,fldr

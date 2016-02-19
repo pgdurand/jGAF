@@ -1,0 +1,3 @@
+proxy.host=www.plealog.com
+proxy.use=true
+proxy.port=3128
