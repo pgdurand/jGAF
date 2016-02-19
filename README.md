@@ -12,6 +12,15 @@ Using jGAF, you can easily and quickly creates cross-platform UI-based Java-Swin
 The library comes with lots of features to save you time and concentrate your effort on the business 
 logic of your software.
 
+jGAF provides a framework with:
+
+* [UI Starter API](http://www.plealog.com/s/index.php/features/ui-starter-api): UI Starter API provides the features to setup and start a graphical application with a few lines of code. The API takes into account the application life-cycle and contains pre-configured supports for starting and ending your software.
+* [Menu API](http://www.plealog.com/s/index.php/features/menu-api): Menu API is designed to setup menus only from a configuration file. Handling actions within your application only requires to use a single action listener. 
+* [Preferences API](http://www.plealog.com/s/index.php/features/preferences-api): Preferences API is a framework to setup a complete multi-pages dialogue box controlling application's configuration. This dialogue box is created using only a set of configuration files, no code is required. Using that API it is even possible to control multi-users configuration and default settings. 
+* [OS Integration API](http://www.plealog.com/s/index.php/features/os-integration-api):  OS integration API takes into account the main UI properties of Linux, Windows and MacOS platforms. For instance, considering the MacOS, our API automatically setup your application to conform to that platform: single menu bar, full-screen capability and pre-configuring About, Preferences and Help commands.
+* [Persistence API](http://www.plealog.com/s/index.php/features/persistence-api): The first role of Persistence API is to save UI properties of your application, such as last size and screen position. Of course many additional properties can be saved depending on your needs: saving and restoring a property are done with a single line of code. The persistence storage being user-specific, your application will work fine in a multi-user environment. 
+* [Utilities API](http://www.plealog.com/s/index.php/features/utilities-api): Utilities API contains additional components to master splash screen, as well as standard messaging, warning, error and input dialogue boxes, to access a logging framework, to manage application resources (e.g. images and icons) and standard FileChooser dialogue boxes for open and save operations. 
+
 jGAF is provided with a free-to-use license for free and commercial softwares.
 
 More: [www.plealog.com](www.plealog.com)
