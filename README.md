@@ -18,7 +18,7 @@ More: [www.plealog.com](www.plealog.com)
 
 # Tutorial
 
-You can have a look at [this project]() to see how to use the library.
+You can have a look at [this project](https://github.com/pgdurand/jGAF-Tutorial) to see how to use the library.
 
 # Documentation
 
