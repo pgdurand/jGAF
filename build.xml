@@ -187,6 +187,7 @@
   	      	<class classes="protected" methods="protected" fields="protected">
       	      <patternset>
                 <include name="com.plealog.genericapp.api.*"/>
+                <include name="com.plealog.genericapp.api.protection.*"/>
                 <include name="com.plealog.genericapp.api.file.*"/>
                 <include name="com.plealog.genericapp.api.log.*"/>
                 <include name="com.plealog.genericapp.ui.apple.EZApple*"/>
