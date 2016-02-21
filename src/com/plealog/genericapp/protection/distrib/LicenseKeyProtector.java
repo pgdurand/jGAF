@@ -18,13 +18,12 @@ import com.plealog.genericapp.api.protection.Protector;
 
 /**
  * Concrete implementation of a Protector relying on a user-name and license key pair of values.
- * 
  */
 public final class LicenseKeyProtector implements Protector {
 	private String _licenseKey;
 	private String _userName;
 	
-	public LicenseKeyProtector(){
+	private LicenseKeyProtector(){
 		super();
 	}
 	
@@ -41,7 +40,7 @@ public final class LicenseKeyProtector implements Protector {
 		return _licenseKey.equals(LicenseKeyController.generate(_userName));
 	}
 	@Override
-	public final boolean libInvalid() {
+	public final boolean isLibraryInvalid() {
 		if (hasKeys()){
 			return !isLibraryOk();
 		}

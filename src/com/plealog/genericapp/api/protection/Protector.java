@@ -14,6 +14,13 @@
  */
 package com.plealog.genericapp.api.protection;
 
+/**
+ * Protector of the library.
+ */
 public interface Protector {
-	public boolean libInvalid();
+	/**
+	 * Figures out whether or not the library is valid for use.
+	 * @return false if invalid, true otherwise.
+	 */
+  public boolean isLibraryInvalid();
 }

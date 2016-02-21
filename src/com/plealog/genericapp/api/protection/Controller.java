@@ -14,17 +14,19 @@
  */
 package com.plealog.genericapp.api.protection;
 
-
-
 /**
  * Use this class to control application protection. It relies on a protection model.
  * First, setup a protection model using ControllerModel, then in the rest of the application, 
- * retrieve the the Protector from this class and check its validity.
+ * retrieve the Protector from this class and check its validity.
  * 
  */
 public final class Controller {
-	
-	public static final Protector getProtector(){
+	/**
+	 * Returns the Protector of the library.
+	 * 
+	 * @return the Protector of the library.
+	 */
+  public static final Protector getProtector(){
 		return ControllerModel.getLicenseKeyProtector();
 	}
 }

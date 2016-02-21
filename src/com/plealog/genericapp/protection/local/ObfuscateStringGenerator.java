@@ -17,13 +17,17 @@ package com.plealog.genericapp.protection.local;
 import com.plealog.genericapp.protection.distrib.HStringCoder;
 
 
-//DO NOT DISTRIBUTE
+/**
+ * This class is used to generate obfuscated strings. 
+ * 
+ * DO NOT distribute this class with the library.
+ */
 public class ObfuscateStringGenerator {
 
 	public static void main(String[] args) {
 		
-		System.out.println(HStringCoder.obfuscate("EZFormLib"));
-		//System.out.println(new HStringCoder("CIvowO$$").toString());
+		System.out.println(HStringCoder.obfuscate("GenericApp Library"));
+		//System.out.println(new HStringCoder("2RuVXZpJ0YwFCcMBWayJXY5J").toString() /* => GenericApp Library */);
 	}
 
 }

@@ -17,6 +17,9 @@ package com.plealog.genericapp.protection.distrib;
 import java.security.MessageDigest;
 
 //adapted from: http://stackoverflow.com/questions/9193376/how-to-generate-a-license-key-using-java
+/**
+ * Utility class used by the LicenseKeyProtector.
+ */
 public final class LicenseKeyController {
 	private static final String charset = new HStringCoder(
 			"UQDJERGV0RKh0SNxlTRBlUUNVVXZFWalTMzIDN2UzN5g").toString() 
@@ -29,10 +32,16 @@ public final class LicenseKeyController {
 	private static String SEED = new HStringCoder("VRGp3btJGTil").toString() 
 			/* => EZFormLib */;
 	
-	public final static String generate(String password)
+	/**
+	 * Encode a value into a license key.
+	 * 
+	 * @param valueToEncode the value to encode; usually it is the user name.
+	 * @return the license key deduced from the value to encode.
+	 */
+	public final static String generate(String valueToEncode)
 	{
 		char[] charArray;
-		byte[] passwd = new String(SEED+password).getBytes();
+		byte[] passwd = new String(SEED+valueToEncode).getBytes();
 		charArray = charset.toCharArray();
 
 		byte[] data = new byte[15];
@@ -75,6 +84,8 @@ public final class LicenseKeyController {
 		return ret;
 	}
 
+	//Decode is not distributed with the library...
+	
 	/*private final static byte[] Decode(String serial){
 		char[] x = strToChar(serial);
 		byte[] table = new byte[256];

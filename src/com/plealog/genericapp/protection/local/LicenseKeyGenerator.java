@@ -16,6 +16,11 @@ package com.plealog.genericapp.protection.local;
 
 import com.plealog.genericapp.protection.distrib.LicenseKeyController;
 
+/**
+ * This class is intended to create a license key given a user name
+ * 
+ * DO NOT distribute this class with the library.
+ */
 public class LicenseKeyGenerator {
 	/**
 	 * @param args
@@ -23,7 +28,6 @@ public class LicenseKeyGenerator {
 	public static void main(String[] args) {
 		System.out.println("User name: ["+args[0]+"]");
 		System.out.println("License  : "+LicenseKeyController.generate(args[0]));
-
 	}
 	//Patrick Durand : L8P78-A5RL7-J4YP2-F3BBZ-7W57Y
 
