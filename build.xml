@@ -89,8 +89,7 @@
 		<!-- Copy Java source code files that make the Full Edition (Full) -->
 		<copy todir="${Dsrc}">
 			<fileset dir="${src}">
-        <exclude name="com/plealog/genericapp/api/protection/**" />
-        <exclude name="com/plealog/genericapp/protection/**" />
+        <exclude name="com/plealog/genericapp/protection/local/**" />
         <exclude name="**/*Test*" />
         <exclude name="**/*test*" />
 				<exclude name="cvs/**" />
