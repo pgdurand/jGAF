@@ -44,7 +44,7 @@ public final class LicenseKeyProtector implements Protector {
 		if (hasKeys()){
 			return !isLibraryOk();
 		}
-		return LibraryProtectorContoller.libExpired();
+		return LibraryDateProtectorController.libExpired();
 	}
 
 }

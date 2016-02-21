@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * Class used to control the validity of the library given an expiration date.
  */
-public final class LibraryDateProtectorContoller {
+public final class LibraryDateProtectorController {
 	/**
 	 * Returns true if the library has expired.
 	 * 
