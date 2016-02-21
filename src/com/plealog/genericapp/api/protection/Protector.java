@@ -23,4 +23,9 @@ public interface Protector {
 	 * @return false if invalid, true otherwise.
 	 */
   public boolean isLibraryInvalid();
+  /**
+   * Figures out whether or not the library has expired.
+   * @return true if expired, false otherwise.
+   */
+  public boolean isLibraryExpired();
 }
