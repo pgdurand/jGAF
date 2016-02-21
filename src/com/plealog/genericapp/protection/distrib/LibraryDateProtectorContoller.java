@@ -14,11 +14,21 @@
  */
 package com.plealog.genericapp.protection.distrib;
 
+/**
+ * Auto generated class: do not modify by hand!
+ * */
 import java.util.Calendar;
 import java.util.Date;
 
-public final class LibraryProtectorContoller {
-	
+/**
+ * Class used to control the validity of the library given an expiration date.
+ */
+public final class LibraryDateProtectorContoller {
+	/**
+	 * Returns true if the library has expired.
+	 * 
+	 * @return Returns true if the library has expired.
+	 */
 	public static final boolean libExpired(){
 		String                 uid, control;
         boolean                bRet = false;

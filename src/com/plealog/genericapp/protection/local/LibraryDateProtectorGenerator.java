@@ -35,8 +35,12 @@ import com.plealog.genericapp.protection.distrib.LibraryProtectorBase;
  * 
  * DO NOT distribute this class with the library.
  */
-public class LibraryProtectorGenerator {
-	
+public class LibraryDateProtectorGenerator {
+	/**
+	 * @param fTemplate it is the absolute path to LibraryProtectorController.template contained in this package
+	 * @param fClass it is the absolute path LibraryProtectorController.class contained in protection.distrib package
+	 * @param days number of validity days of the library. Start counting from today's date.
+	 * */
 	private static void createStamp(String fTemplate, String fClass, int days) throws IOException{
 		String      uid;
 		long        value1;
@@ -123,7 +127,10 @@ public class LibraryProtectorGenerator {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("Generate LibraryTimeStamp: convert '"+args[0]+"' to '"+args[1]+"'.");
+    //[0]: the template class absolute path
+    //[1]: the target class absolute path
+    //[2]: number of days during which library remains valid
+	  System.out.println("Generate LibraryTimeStamp: convert '"+args[0]+"' to '"+args[1]+"'.");
 		System.out.println("Validity: "+args[2]+" days.");
 		try {
 			createStamp(args[0], args[1], Integer.valueOf(args[2]));
@@ -131,25 +138,6 @@ public class LibraryProtectorGenerator {
 			System.err.println("Error: "+e);
 			System.exit(0);
 		}
-		/*try {
-			//http://stackoverflow.com/questions/9193376/how-to-generate-a-license-key-using-java
-			//http://oreilly.com/catalog/javacrypt/chapter/ch06.html
-			MessageDigest md = MessageDigest.getInstance("SHA");
-			md.update("Patrick Durand".getBytes());
-			md.update("EZForm by EZlog".getBytes());
-			byte[] digest = md.digest();
-			System.out.println(digest);
-			for(byte b: digest){
-				if (Character.isLetterOrDigit((char)b)){
-					System.out.print((char)b);
-				}
-			}
-			System.out.println();
-			
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 	}
 
 }
