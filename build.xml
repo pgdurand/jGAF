@@ -153,7 +153,7 @@
 		<delete dir="${doc.api}" />
 		<mkdir dir="${doc.api}" />
 		<javadoc
-			packagenames="com.plealog.genericapp.api,com.plealog.genericapp.api.file,com.plealog.genericapp.api.log,com.plealog.genericapp.ui.menu,com.plealog.prefs4j.api,com.plealog.prefs4j.ui"
+			packagenames="com.plealog.genericapp.api,com.plealog.genericapp.api.file,com.plealog.genericapp.api.log,com.plealog.genericapp.api.protection,com.plealog.genericapp.ui.menu,com.plealog.prefs4j.api,com.plealog.prefs4j.ui"
 			excludepackagenames="com.plealog.genericapp.api.test"
 			Overview="${src}/overview.html" 
 			Private="false" 
