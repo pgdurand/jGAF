@@ -1,5 +1,7 @@
 # About jGAF
 
+[![Build Status](https://travis-ci.org/pgdurand/jGAF.svg?branch=master)](https://travis-ci.org/pgdurand/jGAF)
+
 Generic Swing Application Framework (jGAF) is a library designed to facilitate the creation 
 of cross-platorm graphical applications for the Oracle Java Platform. The idea of that library 
 comes from the needs to have easy-to-use high-level components to create full-featured, multi-OS 
