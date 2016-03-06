@@ -24,8 +24,9 @@ jGAF provides a framework with:
 * [Persistence API](http://www.plealog.com/s/index.php/features/persistence-api): The first role of Persistence API is to save UI properties of your application, such as last size and screen position. Of course many additional properties can be saved depending on your needs: saving and restoring a property are done with a single line of code. The persistence storage being user-specific, your application will work fine in a multi-user environment. 
 * [Utilities API](http://www.plealog.com/s/index.php/features/utilities-api): Utilities API contains additional components to master splash screen, as well as standard messaging, warning, error and input dialogue boxes, to access a logging framework, to manage application resources (e.g. images and icons) and standard FileChooser dialogue boxes for open and save operations. 
 * [Protection API](http://www.plealog.com/s/index.php/features/protection-api): if needed, you can protect your application using user name/license key pair protection, library sealed with an expiration date and string obfuscation mechanism.
+* [Wizard API](http://www.plealog.com/s/index.php/features/wizard-api): Wizard API contains a convenient model-view system to easily setup dialog box wizards.
 
-jGAF is provided with a free-to-use license for free and commercial softwares.
+jGAF is provided with a free-to-use license for free and commercial softwares (see below).
 
 More: [www.plealog.com](www.plealog.com)
 
