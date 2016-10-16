@@ -16,6 +16,7 @@ package com.plealog.genericapp.api;
 
 import java.awt.Component;
 import java.awt.Frame;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
@@ -270,7 +271,7 @@ public class EZEnvironment {
     }
     
     /**
-     * Sets a persistent application peroperty.
+     * Sets a persistent application property.
      * @param key property key
      * @param value property value
      */
@@ -302,6 +303,15 @@ public class EZEnvironment {
     		_persistense = new PrefSafeBox();
     	}
     	_persistense.uninstall();
+    }
+    
+    /**
+     * Returns list of keys of persistent property.
+     * 
+     * @return list or null if no properties available
+     */
+    public static List<String> getApplicationPropertyKeys(){
+      return _persistense==null?null:_persistense.getPropertyKeys();
     }
 }
 

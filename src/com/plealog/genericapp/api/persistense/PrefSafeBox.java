@@ -14,7 +14,9 @@
  */
 package com.plealog.genericapp.api.persistense;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Properties;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
@@ -43,6 +45,14 @@ public class PrefSafeBox {
 			value = null;
 		}
         return value;
+	}
+
+	public List<String> getPropertyKeys(){
+	  ArrayList<String> props = new ArrayList<>();
+	  for(Object key : _props.keySet()){
+	    props.add(key.toString());
+	  }
+	  return props;
 	}
 
 	public void setProperty(String key, String value) {
@@ -81,7 +91,7 @@ public class PrefSafeBox {
 	}
 
 	public void save() {
-        Enumeration e;
+        Enumeration<Object> e;
         String      key, val;
         
 		try{
