@@ -40,7 +40,7 @@ Follow [this link](http://www.plealog.com/s/index.php/documents) to read more ab
 
 # Java code compiler
 
-Source code of jGAF can be compiled using javac 1.6+.
+Source code of jGAF can be compiled using javac 1.7+.
 
 # Using with an IDE
 
