@@ -352,6 +352,9 @@ public class EZFileManager {
       if (returnVal  == JFileChooser.APPROVE_OPTION) {
         EZFileManager.setDefaultPath(jfc.getSelectedFile().getParent());
         file = jfc.getSelectedFile();
+        if (extSelector != null) {
+          file = EZFileUtils.forceFileExtension(file, extSelector.getSelectedFType().getExtension());
+        }
       }
     }
     return file;
