@@ -73,11 +73,12 @@
 		<echo>This is the Ant's project file to manage genapp.</echo>
 		<echo />
 		<echo>Available targets are:</echo>
+	  <echo>  makedistrib: compile and make release JAR of the DocViewer system.</echo>
 		<echo />
 	</target>
 
 	<!-- use this Target to prepare the public distrib zipball -->
-	<target name="package">
+	<target name="makedistrib">
 		<!-- Prepare the distrib directory tree -->
 		<delete dir="${distrib}" />
 		<delete file="${appzip}"/>
@@ -129,7 +130,7 @@
     <delete file="${Dbin}/${appjar}"/>
     <move file="${Dbin}/${obfappjar}" tofile="${Dbin}/${appjar}"/ -->
    </target>
-	<target name="prepareTuto" depends="package">
+	<target name="prepareTuto" depends="makedistrib">
     <delete dir="${Dsrc}" />
     <delete dir="${Dlib}" />
 		<copy todir="${Dex}">
