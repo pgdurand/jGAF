@@ -65,7 +65,7 @@ the many warnings (such as "missing @param")... and I do not have much time to f
 
 # License
 
-jGAF (all code but third party libraries, see below) is released under Apache v2 license.
+jGAF (all code but third party libraries, see below) is released under [Apache v2 license](https://www.apache.org/licenses/LICENSE-2.0).
 
 # Third party libraries
 
