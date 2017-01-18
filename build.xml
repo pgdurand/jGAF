@@ -159,7 +159,7 @@
 			Overview="${src}/overview.html" 
 			Private="false" 
 			Splitindex="true" 
-			Windowtitle="GenApp API" 
+			Windowtitle="Java Generic Application API - ${lib.version}" 
 			author="true" 
 			classpathref="class.path" 
 			destdir="${doc.api}" 
@@ -167,11 +167,11 @@
 			sourcepath="${src}" 
 			version="true">
 			<bottom>
-				<![CDATA[Plealog Software - 2003-2016]]>
+				<![CDATA[<a href="http://www.plealog.com">Plealog Software</a> - 2003-2017]]>
 			</bottom>
 			<header>
-				<![CDATA[Java Generic Application API<BR>specification]]></header>
-			<link href="https://docs.oracle.com/javase/6/docs/api/"/>
+				<![CDATA[Java Generic Application API - ${lib.version}]]></header>
+			<link href="https://docs.oracle.com/javase/7/docs/api/"/>
 		</javadoc>
 	</target>
 

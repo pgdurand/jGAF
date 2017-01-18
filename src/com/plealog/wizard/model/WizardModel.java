@@ -255,7 +255,7 @@ public abstract class WizardModel {
    * Is it possible to finish ?
    * 
    * @param stack the step data models
-   * @return
+   * @return true if wizard can be closed, false otherwise.
    */
   public abstract boolean isFinishable(Stack<WizardStepModel> stack);
 

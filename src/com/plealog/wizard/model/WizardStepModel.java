@@ -33,7 +33,7 @@ public abstract class WizardStepModel {
   /**
    * Get the view associated to this data model.
    *
-   * @return
+   * @return a wizard step model
    */
   public abstract WizardStepView getView();
 
@@ -57,7 +57,7 @@ public abstract class WizardStepModel {
 
   /**
    * Figures out whether or not the data model is in a state compatible with Wizard step progression.
-   * @return
+   * @return true if model can be commited
    */
   public boolean isCommitable() {
     return true;
@@ -116,7 +116,7 @@ public abstract class WizardStepModel {
 
   /**
    * Get the global WizardModel
-   * @return
+   * @return the wizard model
    */
   public final WizardModel getModel() {
     return this.model;
