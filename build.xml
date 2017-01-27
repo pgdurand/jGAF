@@ -33,7 +33,6 @@
 	<property name="conf" value="${basedir}/conf" />
 	<property name="lib" value="${basedir}/lib" />
 	<property name="doc" value="${basedir}/doc" />
-	<property name="doc.api" value="${doc}/api" />
 
 	<property name="distrib" value="${basedir}/distrib" />
 	<property name="Dsrc" value="${distrib}/src" />
@@ -42,6 +41,7 @@
 	<property name="Dlib" value="${distrib}/lib" />
   <property name="Ddoc" value="${distrib}/doc" />
   <property name="Dex" value="${distrib}/examples/src" />
+  <property name="doc.api" value="${Ddoc}/api" />
 
 	<property name="appname" value="${lib.name}-${lib.version}" />
   <property name="appjar" value="${appname}.jar" />
@@ -139,9 +139,6 @@
     <copy todir="${Dconf}">
       <fileset dir="${basedir}/../GAF - Tutorial/conf"/>
     </copy>
-    <copy todir="${Ddoc}/api">
-      <fileset dir="${doc}/api"/>
-    </copy>
     <copy file="${basedir}/license.txt" todir="${distrib}"/>
     <copy file="${basedir}/README.md" todir="${distrib}"/>
 		<zip destfile="${appzip}" basedir="${distrib}"/>
@@ -154,7 +151,7 @@
 		<delete dir="${doc.api}" />
 		<mkdir dir="${doc.api}" />
 		<javadoc
-			packagenames="com.plealog.genericapp.api,com.plealog.genericapp.api.file,com.plealog.genericapp.api.log,com.plealog.genericapp.api.protection,com.plealog.genericapp.ui.menu,com.plealog.prefs4j.api,com.plealog.prefs4j.ui,com.plealog.wizard.model,com.plealog.wizard.ui"
+			packagenames="com.plealog.genericapp.api,com.plealog.genericapp.api.configuration,com.plealog.genericapp.api.file,com.plealog.genericapp.api.log,com.plealog.genericapp.api.protection,com.plealog.genericapp.ui.menu,com.plealog.prefs4j.api,com.plealog.prefs4j.ui,com.plealog.wizard.model,com.plealog.wizard.ui"
 			excludepackagenames="com.plealog.genericapp.api.test"
 			Overview="${src}/overview.html" 
 			Private="false" 
@@ -189,6 +186,7 @@
       	      <patternset>
                 <include name="com.plealog.genericapp.api.*"/>
                 <include name="com.plealog.genericapp.api.protection.*"/>
+                <include name="com.plealog.genericapp.api.configuration.*"/>
                 <include name="com.plealog.genericapp.api.file.*"/>
                 <include name="com.plealog.genericapp.api.log.*"/>
                 <include name="com.plealog.genericapp.ui.apple.EZApple*"/>
