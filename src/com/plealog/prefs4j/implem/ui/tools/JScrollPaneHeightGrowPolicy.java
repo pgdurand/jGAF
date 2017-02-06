@@ -27,7 +27,8 @@ class JScrollPaneHeightGrowPolicy
 		super(JScrollPane.class);
 	}
 
-	@Override protected int componentComputeExtraHeight(JScrollPane component, int extraHeight)
+	@SuppressWarnings("rawtypes")
+  @Override protected int componentComputeExtraHeight(JScrollPane component, int extraHeight)
 	{
 		int unit = component.getVerticalScrollBar().getUnitIncrement(+1);
 		// Fix for issue #28

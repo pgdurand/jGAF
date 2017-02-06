@@ -41,7 +41,7 @@ import com.plealog.genericapp.api.EZEnvironment;
  */
 public class ItemGUIContainer {
     private JTextField   _txt;
-    private JComboBox    _combo;
+    private JComboBox<ChoiceEntry>    _combo;
     private JSpinner     _spinner;
     private JCheckBox    _check;
     private int          _type;
@@ -72,13 +72,13 @@ public class ItemGUIContainer {
      * Returns the combo-box associated to this ItemGUIContainer. Such a combo-box
      * is defined if Item is a Choice, otherwise this method returns null.
      */
-	public JComboBox getCombo() {
+	public JComboBox<ChoiceEntry> getCombo() {
 		return _combo;
 	}
     /**
      * Returns the combo-box associated to this ItemGUIContainer.
      */
-	public void setCombo(JComboBox combo) {
+	public void setCombo(JComboBox<ChoiceEntry> combo) {
 		if (this._combo!=null){
 			this._combo.removeActionListener(_editListener);
 		}

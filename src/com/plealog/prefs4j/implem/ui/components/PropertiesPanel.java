@@ -30,7 +30,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -253,16 +252,16 @@ public class PropertiesPanel extends JPanel {
 	/**
 	 * Helper method to create a JComboBox.
 	 */
-    private JComboBox createCombo(){
-        JComboBox cbx;
+    private JComboBox<ChoiceEntry> createCombo(){
+        JComboBox<ChoiceEntry> cbx;
         
-        cbx =  new JComboBox();
+        cbx =  new JComboBox<>();
         return cbx;
     }
 	/**
      * Helper method to fill in a JComboBox correctly with data contained in item.
      */
-    private void fillCombo(JComboBox combo, Item item, String itemName){
+    private void fillCombo(JComboBox<ChoiceEntry> combo, Item item, String itemName){
         Choice             choice;
         Object[]           sortedKeys;
         int                i;
@@ -303,7 +302,7 @@ public class PropertiesPanel extends JPanel {
         Range              range;
         ItemGUIContainer   guiC;
         JTextField         txtField;
-        JComboBox          combo;
+        JComboBox<ChoiceEntry> combo;
         JCheckBox          check;
         JSpinner           spinner;
         IRowCreator        row;
@@ -482,14 +481,15 @@ public class PropertiesPanel extends JPanel {
         public ComboSelectionActionListener(Item item){
         	_item = item;	
         }
+        @SuppressWarnings("unchecked")
         public void actionPerformed(ActionEvent event){
             ChoiceEntry          entry;
             ItemGUIContainer     guiC;
-            JComboBox            combo;
+            JComboBox<ChoiceEntry> combo;
             Iterator<FormAction> iter;
             FormAction           fa;
             
-            combo = (JComboBox) event.getSource();
+            combo = (JComboBox<ChoiceEntry>) event.getSource();
             entry = (ChoiceEntry) combo.getSelectedItem();
             if (entry==null)
                 return;

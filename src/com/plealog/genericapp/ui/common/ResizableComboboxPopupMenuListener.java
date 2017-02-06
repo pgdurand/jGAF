@@ -37,7 +37,7 @@ public class ResizableComboboxPopupMenuListener implements PopupMenuListener{
 	public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {}
 	public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
 		FontMetrics fm;
-		JComboBox   box;
+		JComboBox<?> box;
 		JComponent  compo;
 		JPopupMenu  popup = null;
 		Dimension   dim;
@@ -45,7 +45,7 @@ public class ResizableComboboxPopupMenuListener implements PopupMenuListener{
 		int         i, nItems, curSize, maxSize;
 		
 		//get the Popup displaying the list of items
-		box = (JComboBox) e.getSource();
+		box = (JComboBox<?>) e.getSource();
 		nItems = box.getUI().getAccessibleChildrenCount(box);
 		for(i=0;i<nItems;i++){
 			obj = box.getUI().getAccessibleChild(box, i);

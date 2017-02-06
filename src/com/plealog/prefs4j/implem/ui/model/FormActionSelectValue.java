@@ -41,7 +41,7 @@ public class FormActionSelectValue extends AbstractFormAction{
 	}
     private void selectComboValue(ItemGUIContainer target){
         Item               item;
-        JComboBox          combo;
+        JComboBox<ChoiceEntry> combo;
         Choice             choice;
         ChoiceEntry        ce;
         

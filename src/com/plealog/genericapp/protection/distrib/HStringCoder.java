@@ -48,7 +48,8 @@ public class HStringCoder {
 		for (int i=0; i<64; i++) map2[map1[i]] = (byte)i; }
 	
 	// The line separator string of the operating system.
-	private static final String systemLineSeparator = System.getProperty(
+	@SuppressWarnings("unused")
+  private static final String systemLineSeparator = System.getProperty(
 			new HStringCoder("GbulSZz5XZhBmc0F3b$I").toString() /* => line.separator */);
 
 
@@ -235,7 +236,8 @@ public class HStringCoder {
 		return out; }
 
 	// Dummy constructor.
-	private HStringCoder() {}
+	@SuppressWarnings("unused")
+  private HStringCoder() {}
 
 	/* ADDED Patrick*/
 

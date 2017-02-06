@@ -198,7 +198,8 @@ final class BarRow extends AbstractRow implements IBarRow
 	private List<BarRowItem> _leftItems = null;
 	private List<BarRowItem> _centerItems = null;
 	private List<BarRowItem> _rightItems = null;
-	private int _numUnrelatedGaps = 0;
+	@SuppressWarnings("unused")
+  private int _numUnrelatedGaps = 0;
 	private boolean _ownRowWidth = false;
 	private int _compWidth = 0;
 }

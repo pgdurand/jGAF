@@ -52,7 +52,7 @@ import com.plealog.resources.Accessor;
  */
 public class EZUIHandler extends java.util.logging.Handler {
   private JTextPane  textArea;
-  private JComboBox  levelSelector;
+  private JComboBox<String>  levelSelector;
   private JComponent component;
   
   private int sizeLimit = 1; //unit is mega-char. To avoid filling the UI component forever
@@ -200,7 +200,7 @@ public class EZUIHandler extends java.util.logging.Handler {
     levels.add(EZEnvironment.getMessage(("__EZLogger.level.warn")));
     levels.add(EZEnvironment.getMessage(("__EZLogger.level.info")));
     levels.add(EZEnvironment.getMessage(("__EZLogger.level.debug")));
-    levelSelector = new JComboBox(levels);
+    levelSelector = new JComboBox<>(levels);
     levelSelector.addActionListener(new ActionListener() {
       
       @Override

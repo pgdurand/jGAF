@@ -30,7 +30,7 @@ import com.plealog.genericapp.ui.common.ResizableComboboxPopupMenuListener;
 public class EZFileExtSelector extends JPanel{
 	private static final long serialVersionUID = 3087118831467808734L;
 
-	private JComboBox                 _selector;
+	private JComboBox<EZFileExtDescriptor> _selector;
 	private List<EZFileExtDescriptor> _types;
 	
 	public EZFileExtSelector(List<EZFileExtDescriptor> types){
@@ -43,7 +43,7 @@ public class EZFileExtSelector extends JPanel{
 	private void createGUI(){
 		JPanel pnl;
 
-		_selector = new JComboBox();
+		_selector = new JComboBox<>();
 		_selector.addPopupMenuListener(new ResizableComboboxPopupMenuListener());
 		for(EZFileExtDescriptor dft:_types){
 			_selector.addItem(dft);

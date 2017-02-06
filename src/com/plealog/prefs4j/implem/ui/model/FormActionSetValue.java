@@ -50,7 +50,7 @@ public class FormActionSetValue extends AbstractFormAction{
         Item               item;
         String             key;
         Iterator<String>   iter;
-        JComboBox          combo;
+        JComboBox<ChoiceEntry> combo;
         
         item = target.getItem();
         combo = target.getCombo();

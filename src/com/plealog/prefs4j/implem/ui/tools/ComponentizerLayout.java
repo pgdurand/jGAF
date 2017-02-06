@@ -360,5 +360,6 @@ final class ComponentizerLayout implements LayoutManager2, Builder
 	private int[] _gaps = null;
 	private int _gap = 0;
 	private int _numComponentsWiderThanPref = 0;
-	private int _numComponentsWiderThanMin = 0;
+	@SuppressWarnings("unused")
+  private int _numComponentsWiderThanMin = 0;
 }
