@@ -35,6 +35,7 @@ public class Item extends AbstractEntry{
     public static final int DTYPE_BOOLEAN  = 4;
     public static final int DTYPE_FOLDER   = 5 ;
     public static final int DTYPE_FILE     = 6 ;
+    public static final int DTYPE_FILES    = 7 ;
 
     public static final String S_CTYPE_CHOICE = "choice";
     public static final String S_CTYPE_VALUE  = "atom";
@@ -45,6 +46,7 @@ public class Item extends AbstractEntry{
     public static final String S_DTYPE_BOOLEAN  = "boolean";
     public static final String S_DTYPE_FOLDER   = "folder";
     public static final String S_DTYPE_FILE     = "file";
+    public static final String S_DTYPE_FILES    = "files";
 
     private static final MessageFormat RANGE_ERR_FORMATTER = 
     	new MessageFormat(EZEnvironment.getMessage("__EZItem.control.error.notInRange"));
@@ -102,7 +104,7 @@ public class Item extends AbstractEntry{
      * @param sDType the string representation of the data type. Should
      * be one of integer, real, string or bool.
      * 
-     * @return one of DTYPE_INT, DTYPE_REAL, DTYPE_STRING or DTYPE_BOOLEAN
+     * @return one of DTYPE_INT, DTYPE_REAL, DTYPE_STRING, etc.
      * @throws ItemException if sDType is invalid.
      */
     public static int getDType(String sDType){
@@ -117,7 +119,9 @@ public class Item extends AbstractEntry{
         else if (sDType.equals(S_DTYPE_FOLDER))
             return DTYPE_FOLDER;
         else if (sDType.equals(S_DTYPE_FILE))
-            return DTYPE_FILE;
+          return DTYPE_FILE;
+        else if (sDType.equals(S_DTYPE_FILES))
+          return DTYPE_FILES;
         else throw new ItemException("Unknown DType: "+sDType);
     }
     
@@ -143,7 +147,9 @@ public class Item extends AbstractEntry{
         else if (dType==DTYPE_FOLDER)
             return S_DTYPE_FOLDER;
         else if (dType==DTYPE_FILE)
-            return S_DTYPE_FILE;
+          return S_DTYPE_FILE;
+        else if (dType==DTYPE_FILES)
+          return S_DTYPE_FILES;
         else throw new ItemException("Unknown DType: "+dType);
     }
 

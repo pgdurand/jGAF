@@ -30,6 +30,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -339,12 +340,13 @@ public class PropertiesPanel extends JPanel {
                         guiC.setTxtField(txtField);
                     }
                 }
-                if(item.getDtype()==Item.DTYPE_FOLDER || item.getDtype()==Item.DTYPE_FILE){
+                if(item.getDtype()==Item.DTYPE_FOLDER || item.getDtype()==Item.DTYPE_FILE
+                    || item.getDtype()==Item.DTYPE_FILES){
                     JButton btn = new JButton(EZEnvironment.getImageIcon("folder.png"));
                     if(item.getDtype()==Item.DTYPE_FOLDER)
                     	btn.addActionListener(new ChooseFolderAction(guiC.getTxtField()));
                     else
-                    	btn.addActionListener(new ChooseFileAction(guiC.getTxtField()));
+                    	btn.addActionListener(new ChooseFileAction(guiC.getTxtField(), item.getDtype()==Item.DTYPE_FILES));
                     	
                     JPanel selectDirectoryPanel = new JPanel();
                     new DesignGridLayout(selectDirectoryPanel).margins(0).row().right().add(guiC.getComponent()).add(btn).fill();
@@ -677,15 +679,32 @@ public class PropertiesPanel extends JPanel {
     }
 	private class ChooseFileAction implements ActionListener{
     	private JTextField _field;
-    	private ChooseFileAction(JTextField field){
+    	private boolean _enableMultipleSelection;
+    	
+    	private ChooseFileAction(JTextField field, boolean enableMultipleSelection){
     		_field = field;
+    		_enableMultipleSelection = enableMultipleSelection;
     	}
     	public void actionPerformed(ActionEvent event){
-    		File f;
-    		
-    		f = EZFileManager.chooseFileForOpenAction(PropertiesPanel.this, null, null);
-    		if (f!=null)
-    			_field.setText(f.getAbsolutePath());
+    		if (_enableMultipleSelection){
+    		  File[] fs = EZFileManager.chooseFilesForOpenAction(PropertiesPanel.this, null, null);
+    		  if (fs!=null){
+    		    StringBuffer buf = new StringBuffer();
+    		    Iterator<File> flst = Arrays.asList(fs).iterator();
+    		    while(flst.hasNext()){
+    		      buf.append(flst.next());
+    		      if (flst.hasNext()){
+    		        buf.append(",");
+    		      }
+    		    }
+    		    _field.setText(buf.toString());
+    		  }
+    		}
+    		else{
+          File f = EZFileManager.chooseFileForOpenAction(PropertiesPanel.this, null, null);
+          if (f!=null)
+            _field.setText(f.getAbsolutePath());
+    		}
     	}
     }
 }
