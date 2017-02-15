@@ -14,6 +14,7 @@
  */
 package com.plealog.genericapp.ui.starter;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
@@ -30,6 +31,7 @@ import javax.swing.JMenuBar;
 
 import com.plealog.genericapp.api.EZApplicationBranding;
 import com.plealog.genericapp.api.EZEnvironment;
+import com.plealog.genericapp.api.EZUIStarterListener;
 import com.plealog.genericapp.ui.apple.EZAppleConfigurator;
 import com.plealog.genericapp.ui.menu.EZActionManager;
 import com.plealog.resources.Accessor;
@@ -58,9 +60,12 @@ public class EZUIStarterImplem {
 			if(menuBar!=null){
 				this.setJMenuBar(menuBar);
 			}
-			if (EZEnvironment.getUIStarterListener()!=null &&
-					EZEnvironment.getUIStarterListener().getApplicationComponent()!=null){
-					this.getContentPane().add(EZEnvironment.getUIStarterListener().getApplicationComponent());
+			EZUIStarterListener listener = EZEnvironment.getUIStarterListener(); 
+			if (listener!=null){
+			  Component cp = listener.getApplicationComponent();
+			  if (cp !=null){
+          this.getContentPane().add(cp);
+			  }
 			}
 			this.addWindowListener(new MainWindowAdapter());
 			this.pack();
