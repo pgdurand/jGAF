@@ -29,66 +29,38 @@
  */
 package com.plealog.genericapp.ui.common;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
+import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Paint;
+import java.awt.Insets;
 
-import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.AbstractBorder;
 
 
 /**
- * A basic implementation of a JPanel with a gradient colored background.
- *  
+ * This is a custom border for the raised header pseudo 3D effect.
+ *
  * @author Karsten Lentzsch
  */
+public class RaisedHeaderBorder extends AbstractBorder {
 
-public class GradientPanel extends JPanel {
-  private static final long serialVersionUID = 3645214319959566285L;
-  private boolean _selected;
-  private int     _orientation;
-  private Color   _color1;
-  private Color   _color2;
+  private static final long serialVersionUID = 7607498793424562762L;
+  private static final Insets INSETS = new Insets(1, 1, 1, 0);
 
-  public static final int GRAD_ORIENTATION_LtoR   = 0;
-  public static final int GRAD_ORIENTATION_TLtoBR = 1;
-
-  public GradientPanel(Color color1, Color color2) {
-    super();
-    _color1 = color1;
-    _color2 = color2;
+  public Insets getBorderInsets(Component c){
+    return INSETS;
   }
-  public void setGradientOrientation(int orientation){
-    _orientation = orientation;
-  }
-  public void setSelected(boolean sel){
-    _selected = sel;
-  }
-  public boolean isSelected(){
-    return _selected;
-  }
-  public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-    if (!isOpaque() || isSelected()) {
-      return;
-    }
-    int width  = getWidth();
-    int height = getHeight();
 
-    Graphics2D g2 = (Graphics2D) g;
-    Paint storedPaint = g2.getPaint();
-    GradientPaint gp;
-    switch(_orientation){
-      case GRAD_ORIENTATION_TLtoBR:
-        gp = new GradientPaint(0, 0, _color1, width, height, _color2);
-        break;
-      default:
-        gp = new GradientPaint(0, 0, _color1, width, 0, _color2);
-    }
-    g2.setPaint(gp);
+  public void paintBorder(Component c, Graphics g,
+      int x, int y, int w, int h) {
 
-    g2.fillRect(0, 0, width, height);
-    g2.setPaint(storedPaint);
+    g.translate(x, y);
+    g.setColor(UIManager.getColor("controlLtHighlight"));
+    g.fillRect(0, 0, w, 1);
+    g.fillRect(0, 1, 1, h-1);
+    g.setColor(UIManager.getColor("controlShadow"));
+    g.fillRect(0, h-1, w, 1);
+    g.translate(-x, -y);
   }
 }
+
