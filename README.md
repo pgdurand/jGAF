@@ -1,4 +1,4 @@
-# About jGAF
+# About jGAF - Generic Swing Application Framework
 
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Build Status](https://travis-ci.org/pgdurand/jGAF.svg?branch=master)](https://travis-ci.org/pgdurand/jGAF) [![](https://tokei.rs/b1/github/pgdurand/jGAF?category=code)](https://github.com/pgdurand/jGAF) [![](https://img.shields.io/badge/platform-Java--1.7+-yellow.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) [![](https://img.shields.io/badge/run_on-Linux--Mac_OSX--Windows-yellowgreen.svg)]()
 
