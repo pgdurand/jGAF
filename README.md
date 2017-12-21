@@ -1,6 +1,6 @@
 # About jGAF - Generic Swing Application Framework
 
-[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Build Status](https://travis-ci.org/pgdurand/jGAF.svg?branch=master)](https://travis-ci.org/pgdurand/jGAF) [![](https://tokei.rs/b1/github/pgdurand/jGAF?category=code)](https://github.com/pgdurand/jGAF) [![](https://img.shields.io/badge/platform-Java--1.7+-yellow.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) [![](https://img.shields.io/badge/run_on-Linux--Mac_OSX--Windows-yellowgreen.svg)]()
+[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Build Status](https://travis-ci.org/pgdurand/jGAF.svg?branch=master)](https://travis-ci.org/pgdurand/jGAF) [![](https://tokei.rs/b1/github/pgdurand/jGAF?category=code)](https://github.com/pgdurand/jGAF) [![](https://img.shields.io/badge/platform-Java--1.8+-yellow.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) [![](https://img.shields.io/badge/run_on-Linux--Mac_OSX--Windows-yellowgreen.svg)]()
 
 Generic Swing Application Framework (jGAF) is a library designed to facilitate the creation 
 of cross-platorm graphical applications for the Oracle Java Platform. The idea of that library 
@@ -39,7 +39,7 @@ Follow [this link](http://www.plealog.com/s/index.php/documents) to read more ab
 
 # Java code compiler
 
-Source code of jGAF can be compiled using javac 1.7+.
+Source code of jGAF can be compiled using javac 1.8+. We do not support anymore older JDK, since Oracle [dropped down](http://www.webupd8.org/2017/06/why-oracle-java-7-and-6-installers-no.html) the support of Java releases previous to 8.
 
 # Using with an IDE
 
