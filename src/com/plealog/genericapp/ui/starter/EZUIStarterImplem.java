@@ -88,6 +88,15 @@ public class EZUIStarterImplem {
 	        EventQueue.invokeLater(runner);
 		}
 	}
+	
+  private class UIStarterListenerDisplayedhandler extends Thread {
+    public void run() {
+      if(EZEnvironment.getUIStarterListener()!=null){
+        EZEnvironment.getUIStarterListener().frameDisplayed();
+      }
+    }
+  }
+	
 	private void center(Window frame) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = frame.getSize();
@@ -154,6 +163,7 @@ public class EZUIStarterImplem {
 	            }
 	        });
 			frame.setVisible(true);
+			EventQueue.invokeLater(new UIStarterListenerDisplayedhandler());
         }
     }
     public void startApplication(String[] args){

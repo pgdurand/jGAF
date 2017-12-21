@@ -110,5 +110,9 @@ public class EZUIStarterTest {
     public boolean isAboutToQuit() {
       return true;
     }
+
+    @Override
+    public void frameDisplayed() {
+    }
   }
 }

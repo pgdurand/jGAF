@@ -32,6 +32,11 @@ public interface EZUIStarterListener {
 	 */
 	public void postStart();
 	
+  /**
+   * This method is called when the application frame has been displayed.
+   */
+	public void frameDisplayed();
+	
 	/**
 	 * This method is called when application is going to install the user-defined
 	 * component within the main frame.
