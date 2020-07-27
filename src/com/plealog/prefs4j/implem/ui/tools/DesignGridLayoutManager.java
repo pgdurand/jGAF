@@ -14,9 +14,12 @@
 
 package com.plealog.prefs4j.implem.ui.tools;
 
+import static com.plealog.prefs4j.implem.ui.tools.RowIterator.each;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.LayoutManager;
 import java.awt.LayoutManager2;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,8 +28,6 @@ import java.util.ListIterator;
 
 import javax.swing.JComponent;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
-import static com.plealog.prefs4j.implem.ui.tools.RowIterator.each;
 
 /**
  * The actual {@link LayoutManager} created and installed by {@link DesignGridLayout}

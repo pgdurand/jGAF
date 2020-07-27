@@ -14,6 +14,8 @@
 
 package com.plealog.prefs4j.implem.ui.tools;
 
+import java.awt.LayoutManager;
+
 import javax.swing.JComponent;
 
 /**
