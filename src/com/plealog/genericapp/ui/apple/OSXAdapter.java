@@ -69,6 +69,12 @@ import java.lang.reflect.Proxy;
 
 import com.plealog.genericapp.api.log.EZLogger;
 
+
+// Switch to JDK 11 :
+// dock icon : passer part la TaskBar (awt)
+// les handlers : passer par awt.Desktop.getDesktop()
+// https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Desktop.html
+
 public class OSXAdapter implements InvocationHandler {
 
     protected Object targetObject;
