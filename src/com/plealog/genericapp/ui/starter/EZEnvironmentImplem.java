@@ -686,14 +686,18 @@ public abstract class EZEnvironmentImplem {
   }
 
   public static String getMessage(String key) {
+    if (_userDefinedMessagesBundle != null) {
+        try {
+            return _userDefinedMessagesBundle.getString(key);
+        } catch (Exception ignored) {
+
+        }
+    }
+
     try {
-      if (key.startsWith("__EZ")) {
         return RESOURCE_BUNDLE.getString(key);
-      } else {
-        return _userDefinedMessagesBundle.getString(key);
-      }
     } catch (Exception e) {
-      return '!' + key + '!';
+        return '!' + key + '!';
     }
   }
 
