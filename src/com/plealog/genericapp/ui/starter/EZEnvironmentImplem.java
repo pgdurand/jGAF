@@ -320,7 +320,8 @@ public abstract class EZEnvironmentImplem {
         _mainFont = new Font(szFntName, Font.PLAIN, size);
       }
     } catch (MissingResourceException mre) {
-      EZLogger.warn("Unable to find resources: " + mre.getMessage());
+      //No bad!
+      //EZLogger.warn("Unable to find resources: " + mre.getMessage());
     } catch (NumberFormatException nfe) {
       EZLogger.warn("Value for font size does not contain an integer: "
           + nfe.getMessage());
