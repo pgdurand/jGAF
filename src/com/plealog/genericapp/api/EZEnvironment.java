@@ -82,7 +82,7 @@ public class EZEnvironment {
   /**
    * Remove a class used to enable JRE to locate resources such as images.
    */
-  public static void removeResourceLocatro(Class<?> cl) {
+  public static void removeResourceLocator(Class<?> cl) {
     EZEnvironmentImplem.removeResourceLocator(cl);
   }
 
