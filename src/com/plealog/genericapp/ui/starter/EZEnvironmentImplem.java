@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2016 Patrick G. Durand
+/* Copyright (C) 2003-2023 Patrick G. Durand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 import com.plealog.genericapp.api.EZApplicationBranding;
 import com.plealog.genericapp.api.EZEnvironment;
@@ -66,7 +67,7 @@ public abstract class EZEnvironmentImplem {
   private static Color               _systemTextColor   = Color.BLACK;
 
   /** generic font for the entire GUI */
-  private static final Font          MAINFONT           = new Font("SansSerif",
+  private static final Font          MAINFONT           = new Font("LucidaSans",
                                                             Font.PLAIN, 12);
 
   /** an unknown String value for not defined key (?) */
@@ -307,17 +308,16 @@ public abstract class EZEnvironmentImplem {
    */
   public static Font getMainFont(ResourceBundle rb) {
     String szFntName;
-    Font fnt = MAINFONT;
     int size;
 
+    if (_mainFont != null)
+      return _mainFont;
     try {
+      _mainFont = MAINFONT;
       if (rb != null) {
-        if (_mainFont == null) {
-          szFntName = rb.getString("app.font.name");
-          size = Integer.valueOf(rb.getString("app.font.size")).intValue();
-          _mainFont = new Font(szFntName, Font.PLAIN, size);
-        }
-        fnt = _mainFont;
+        szFntName = rb.getString("app.font.name");
+        size = Integer.valueOf(rb.getString("app.font.size")).intValue();
+        _mainFont = new Font(szFntName, Font.PLAIN, size);
       }
     } catch (MissingResourceException mre) {
       EZLogger.warn("Unable to find resources: " + mre.getMessage());
@@ -325,7 +325,7 @@ public abstract class EZEnvironmentImplem {
       EZLogger.warn("Value for font size does not contain an integer: "
           + nfe.getMessage());
     }
-    return (fnt);
+    return (_mainFont);
   }
 
   /**
@@ -599,6 +599,10 @@ public abstract class EZEnvironmentImplem {
 
   public static void setUserDefinedActionsResourceBundle(ResourceBundle rb) {
     _userDefinedActionsBundle = rb;
+    // properly install fonts specs for Menu according to Java Swing specs
+    Font fnt = getMainFont(rb);
+    UIManager.put("Menu.font", fnt);
+    UIManager.put("MenuItem.font", fnt);
   }
 
   public static EZActionManager getActionsManager() {
